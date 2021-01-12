@@ -24,8 +24,6 @@ dependencies {
     implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
     implementation group: 'com.google.cloud', name: 'sqlcommenter', version: '0.0.2'
     implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '7.0.42'
-    implementation group: 'org.springframework.cloud', name: 'spring-cloud-gcp-dependencies', version: '1.2.6.RELEASE', ext: 'pom'
-    implementation group: 'org.springframework.cloud', name: 'spring-cloud-gcp-starter-sql-postgresql'
 }
 
 test {
