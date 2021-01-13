@@ -1,6 +1,6 @@
 package com.example.demo.controllers;
 
-import com.example.demo.entities.User;
+import com.example.demo.entities.DemoUser;
 import com.example.demo.services.UserRepository;
 import io.opencensus.trace.samplers.Samplers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,7 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class CreateUserController {
@@ -27,8 +26,8 @@ public class CreateUserController {
 
         // Start opencensus scope to append comments to mySQL query log
         io.opencensus.trace.Tracer tracer = io.opencensus.trace.Tracing.getTracer();
-        try (io.opencensus.common.Scope ss = tracer.spanBuilder("DemoSpan").setSampler(Samplers.alwaysSample()).startScopedSpan()) {
-            User n = new User();
+        try (io.opencensus.common.Scope ss = tracer.spanBuilder("cyan-DemoSpan").setSampler(Samplers.alwaysSample()).startScopedSpan()) {
+            DemoUser n = new DemoUser();
             n.setName(name);
             n.setEmail(email);
             userRepository.save(n);

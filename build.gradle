@@ -13,17 +13,28 @@ repositories {
     maven {
         url "https://mvnrepository.com/artifact/com.google.cloud/sqlcommenter"
     }
+    maven {
+        url "https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-gcp-starter-sql-postgresql"
+    }
 }
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
-    runtimeOnly 'mysql:mysql-connector-java'
+//    runtimeOnly 'mysql:mysql-connector-java'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    compile group: 'com.google.api', name: 'gax-grpc', version: '1.60.1'
+
+    compile 'io.opencensus:opencensus-api:0.28.1'
+    compile 'io.opencensus:opencensus-exporter-trace-stackdriver:0.28.1'
+    runtime 'io.opencensus:opencensus-impl:0.28.1'
 
     implementation group: 'javax.servlet', name: 'jstl', version: '1.2'
     implementation group: 'com.google.cloud', name: 'sqlcommenter', version: '0.0.2'
     implementation group: 'org.apache.tomcat.embed', name: 'tomcat-embed-jasper', version: '7.0.42'
+    implementation group: 'org.springframework.cloud', name: 'spring-cloud-gcp-dependencies', version: '1.2.6.RELEASE', ext: 'pom'
+    compile group: 'org.springframework.cloud', name: 'spring-cloud-gcp-starter-sql-postgresql', version: '1.2.6.RELEASE'
 }
 
 test {
