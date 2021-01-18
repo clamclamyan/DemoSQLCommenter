@@ -1,39 +1,4 @@
 <jsp:include page="index.jsp"/>
-<!doctype html>
-<html>
-<head>
-    <style>
-        .container {
-            max-width: 300px;
-            text-align: center;
-        }
-
-        .vertical-center {
-            min-height: 100%; /* Fallback for browsers do NOT support vh unit */
-            min-height: 100vh; /* These two lines are counted as one :-)       */
-
-            display: flex;
-            align-items: center;
-        }
-
-        #userForm {
-            padding: 15px;
-        }
-
-        #userForm input[type="text"] {
-            margin-bottom: -1px;
-            border-bottom-right-radius: 0;
-            border-bottom-left-radius: 0;
-        }
-
-        #userForm input[type="email"] {
-            margin-bottom: 10px;
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-        }
-    </style>
-</head>
-<body>
 <div class="jumbotron vertical-center">
     <div class="container">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-people-fill"
@@ -54,5 +19,3 @@
         </form>
     </div>
 </div>
-</body>
-</html>

@@ -1,22 +1,4 @@
 <jsp:include page="index.jsp"/>
-<html>
-<head>
-    <style>
-        .vertical-center {
-            min-height: 100%; /* Fallback for browsers do NOT support vh unit */
-            min-height: 100vh; /* These two lines are counted as one :-)       */
-
-            display: flex;
-            align-items: center;
-        }
-
-        .container {
-            text-align: center;
-        }
-    </style>
-</head>
-
-<body>
 <div class="jumbotron vertical-center">
     <div class="container">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle"
@@ -30,6 +12,3 @@
         <a class="btn btn-primary" href="createUser" role="button">Create New User</a>
     </div>
 </div>
-</body>
-
-</html>
