@@ -14,32 +14,32 @@ import org.springframework.web.servlet.view.JstlView;
 
 @EnableWebMvc
 @Configuration
-@ComponentScan(basePackages = { "com.example.demo" })
+@ComponentScan(basePackages = {"com.example.demo"})
 public class WebConfig implements WebMvcConfigurer {
 
-    @Bean
-    public SpringSQLCommenterInterceptor sqlInterceptor() {
-        return new SpringSQLCommenterInterceptor();
-    }
+  @Bean
+  public SpringSQLCommenterInterceptor sqlInterceptor() {
+    return new SpringSQLCommenterInterceptor();
+  }
 
-    @Override
-    public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(sqlInterceptor());
-    }
+  @Override
+  public void addInterceptors(InterceptorRegistry registry) {
+    registry.addInterceptor(sqlInterceptor());
+  }
 
-    @Bean
-    public ViewResolver viewResolver() {
-        InternalResourceViewResolver bean = new InternalResourceViewResolver();
+  @Bean
+  public ViewResolver viewResolver() {
+    InternalResourceViewResolver bean = new InternalResourceViewResolver();
 
-        bean.setViewClass(JstlView.class);
-        bean.setPrefix("/WEB-INF/view/");
-        bean.setSuffix(".jsp");
+    bean.setViewClass(JstlView.class);
+    bean.setPrefix("/WEB-INF/view/");
+    bean.setSuffix(".jsp");
 
-        return bean;
-    }
+    return bean;
+  }
 
-    @Override
-    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
-    }
+  @Override
+  public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+    registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
+  }
 }
