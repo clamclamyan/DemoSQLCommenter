@@ -1,4 +1,5 @@
 <jsp:include page="index.jsp"/>
+<body style="overflow: hidden">
 <div class="jumbotron vertical-center">
     <div class="container">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-people-fill"
@@ -12,10 +13,12 @@
         <h3>Create a user</h3>
         <form action="/add" method="POST" id="userForm">
             <div class="mb-3">
-                <input name="nameInput" type="text" class="form-control" id="nameInput" placeholder="Name" required="true">
+                <input name="nameInput" type="text" class="form-control" id="nameInput" placeholder="Name"
+                       required="true">
                 <input name="emailInput" type="email" class="form-control" id="emailInput" placeholder="Email">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>
 </div>
+</body>
