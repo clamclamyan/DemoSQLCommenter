@@ -12,7 +12,7 @@
         <h3>Create a user</h3>
         <form action="/add" method="POST" id="userForm">
             <div class="mb-3">
-                <input name="nameInput" type="text" class="form-control" id="nameInput" placeholder="Name">
+                <input name="nameInput" type="text" class="form-control" id="nameInput" placeholder="Name" required="true">
                 <input name="emailInput" type="email" class="form-control" id="emailInput" placeholder="Email">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>

@@ -10,5 +10,6 @@
 
         <h3 style="padding: 10px">User Created</h3>
         <a class="btn btn-primary" href="createUser" role="button">Create New User</a>
+        <a class="btn btn-secondary" href="https://pantheon.corp.google.com/traces/list?cloudshell=false&project=${projectName}&tid=${traceId}" role="button" target="_blank">View Trace</a>
     </div>
 </div>
