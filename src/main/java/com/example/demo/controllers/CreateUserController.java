@@ -12,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -35,8 +36,8 @@ public class CreateUserController {
     return "createUser";
   }
 
-  @RequestMapping(value = "/add", method = RequestMethod.POST)
-  public ModelAndView addNewUser(
+  @RequestMapping(params = "opencensus", value = "/add", method = RequestMethod.POST)
+  public ModelAndView addNewUserOpenCensus(
       @RequestParam(value = "nameInput") String name,
       @RequestParam(value = "emailInput") String email) {
 
@@ -57,5 +58,14 @@ public class CreateUserController {
     ModelAndView modelAndView = new ModelAndView("userSaved");
     modelAndView.addObject("projectName", projectName).addObject("traceId", traceId);
     return modelAndView;
+  }
+
+  @RequestMapping(params = "opentelemetry", value = "/add", method = RequestMethod.POST)
+  @ResponseBody
+  public String addNewUserOpenTelemetry(
+      @RequestParam(value = "nameInput") String name,
+      @RequestParam(value = "emailInput") String email) {
+    System.out.println(name + ' ' + email + " TODO");
+    return "opentelemetry";
   }
 }

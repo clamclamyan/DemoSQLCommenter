@@ -1,5 +1,5 @@
 <jsp:include page="index.jsp"/>
-<body style="overflow: hidden">
+<body>
 <div class="jumbotron vertical-center">
     <div class="container">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-people-fill"
@@ -17,7 +17,8 @@
                        required="true">
                 <input name="emailInput" type="email" class="form-control" id="emailInput" placeholder="Email">
             </div>
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <input type="image" src="/resources/ocicon.png" class="iconSubmit" name="opencensus" title="Create with OpenCensus tracing">
+            <input type="image" src="/resources/oticon.png" class="iconSubmit" name="opentelemetry" title="Create with OpenTelemetry tracing">
         </form>
     </div>
 </div>

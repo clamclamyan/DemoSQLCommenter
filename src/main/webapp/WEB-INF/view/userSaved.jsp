@@ -1,5 +1,5 @@
 <jsp:include page="index.jsp"/>
-<body style="overflow: hidden">
+<body>
 <div class="jumbotron vertical-center">
     <div class="container">
         <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="bi bi-person-circle"
@@ -12,7 +12,7 @@
         <h3 style="padding: 10px">User Created</h3>
         <a class="btn btn-primary" href="createUser" role="button">Create New User</a>
         <a class="btn btn-secondary"
-           href="https://pantheon.corp.google.com/traces/list?cloudshell=false&project=${projectName}&tid=${traceId}"
+           href="https://pantheon.corp.google.com/traces/list?project=${projectName}&tid=${traceId}"
            role="button" target="_blank">View Trace</a>
     </div>
 </div>
