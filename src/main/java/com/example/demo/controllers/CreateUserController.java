@@ -2,7 +2,6 @@ package com.example.demo.controllers;
 
 import com.example.demo.entities.DemoUser;
 import com.example.demo.services.UserRepository;
-import io.opencensus.trace.samplers.Samplers;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.annotation.PostConstruct;
@@ -46,7 +45,10 @@ public class CreateUserController {
     // Start opencensus scope to append comments to mySQL query log
     io.opencensus.trace.Tracer tracer = io.opencensus.trace.Tracing.getTracer();
     try (io.opencensus.common.Scope ss =
-        tracer.spanBuilder("cyan-DemoSpan").setSampler(Samplers.alwaysSample()).startScopedSpan()) {
+        tracer
+            .spanBuilder("cyan-DemoSpan")
+            .setSampler(io.opencensus.trace.samplers.Samplers.alwaysSample())
+            .startScopedSpan()) {
       DemoUser n = new DemoUser();
       n.setName(name);
       n.setEmail(email);
@@ -62,10 +64,28 @@ public class CreateUserController {
 
   @RequestMapping(params = "opentelemetry", value = "/add", method = RequestMethod.POST)
   @ResponseBody
-  public String addNewUserOpenTelemetry(
+  public ModelAndView addNewUserOpenTelemetry(
       @RequestParam(value = "nameInput") String name,
       @RequestParam(value = "emailInput") String email) {
-    System.out.println(name + ' ' + email + " TODO");
-    return "opentelemetry";
+
+    String traceId;
+
+    io.opentelemetry.api.trace.Tracer tracer =
+        io.opentelemetry.api.GlobalOpenTelemetry.getTracer("cyan-DemoTracer");
+    io.opentelemetry.api.trace.Span span = tracer.spanBuilder("cyan-DemoSpan").startSpan();
+    try (io.opentelemetry.context.Scope ss = span.makeCurrent()) {
+      DemoUser n = new DemoUser();
+      n.setName(name);
+      n.setEmail(email);
+      userRepository.save(n);
+
+      traceId = span.getSpanContext().getTraceIdAsHexString();
+    } finally {
+      span.end();
+    }
+
+    ModelAndView modelAndView = new ModelAndView("userSaved");
+    modelAndView.addObject("projectName", projectName).addObject("traceId", traceId);
+    return modelAndView;
   }
 }
