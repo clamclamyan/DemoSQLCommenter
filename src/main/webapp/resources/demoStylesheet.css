@@ -1,3 +1,7 @@
+body {
+    overflow: hidden;
+}
+
 .jumbotron {
     margin-bottom: 0;
 }
@@ -29,4 +33,14 @@
     margin-bottom: 10px;
     border-top-left-radius: 0;
     border-top-right-radius: 0;
+}
+
+.iconSubmit {
+    border: 1px solid #a9a9a9;
+    border-radius: 20px;
+    display: inline-block;
+    width: 40px;
+    padding: 4px;
+    margin-left: 16px;
+    margin-right: 16px;
 }
